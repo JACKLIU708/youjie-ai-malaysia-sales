@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A local, non-production booking workflow demonstration prepared for The Zoo Karaoke JB.">
+    <title>The Zoo booking-flow demo | Youjie AI</title>
+    <link rel="stylesheet" href="../demo.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <a class="brand" href="../../index.html">← WEICE YOUJIE · DEMO</a>
+      <div class="demo-grid">
+        <section class="intro">
+          <p class="eyebrow">PERSONALISED WALKTHROUGH · THE ZOO KARAOKE JB</p>
+          <h1>Every package enquiry can begin with a <em>clear request.</em></h1>
+          <p>This local demonstration shows how birthday, family, student and room-rate enquiries could collect the information staff need before WhatsApp follow-up. It does not collect personal details, create a real booking or process a payment.</p>
+          <ol class="steps"><li><span>1</span> Select the guest’s enquiry</li><li><span>2</span> Choose date, time and group size</li><li><span>3</span> See a deposit-pending request</li><li><span>4</span> Let the venue confirm by its own process</li></ol>
+        </section>
+        <section class="booking-card" aria-label="The Zoo booking-flow demonstration">
+          <div class="card-header"><span>GUEST VIEW · THE ZOO</span><strong>DEMO ONLY</strong></div>
+          <div id="form-panel">
+            <h2>Plan your visit</h2>
+            <form id="booking-form">
+              <label>What would you like to ask about?
+                <select name="offer" required>
+                  <option value="birthday">Birthday package</option>
+                  <option value="family">Family package</option>
+                  <option value="student">Student price</option>
+                  <option value="rate">Room rate</option>
+                </select>
+              </label>
+              <div class="two-columns"><label>Date<input name="date" type="date" required></label><label>Preferred time<input name="time" type="time" required></label></div>
+              <label>Number of guests<input name="guests" type="number" min="1" value="4" required></label>
+              <p class="notice">The live venue decides availability, package rules and any deposit amount. This demo records only a request and a pending status.</p>
+              <p id="form-error" class="error" role="alert"></p>
+              <button type="submit">Create enquiry request <span>→</span></button>
+            </form>
+          </div>
+          <div id="result-panel" hidden aria-live="polite">
+            <p class="eyebrow">REQUEST CREATED</p>
+            <h2 id="offer-name"></h2>
+            <p id="booking-summary" class="summary"></p>
+            <dl><div><dt>Reference</dt><dd id="reference"></dd></div><div><dt>Deposit</dt><dd id="deposit"></dd></div><div><dt>Status</dt><dd id="status"></dd></div></dl>
+            <div class="handover"><strong>What the team receives</strong><span>The selected enquiry, preferred date and time, group size, and a deposit-pending status for the venue’s own follow-up.</span></div>
+            <button id="confirm-button" type="button">Simulate venue confirmation <span>→</span></button>
+            <button id="restart-button" class="text-button" type="button">Start again</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="demo.mjs"></script>
+  </body>
+</html>

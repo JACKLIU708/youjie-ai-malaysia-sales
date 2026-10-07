@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Local demonstration of a booking-to-deposit customer journey.">
+    <title>Booking-to-Deposit Demo | Youjie AI</title>
+    <link rel="stylesheet" href="demo.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <a class="brand" href="../index.html">← WEICE YOUJIE · DEMO</a>
+      <div class="demo-grid">
+        <section class="intro">
+          <p class="eyebrow">INTERACTIVE WALKTHROUGH</p>
+          <h1>From “Can I book?” to a <em>clear next step.</em></h1>
+          <p>This is a local demonstration of the flow a customer could use before staff take over. It does not collect personal details, create a real booking or process a payment.</p>
+          <ol class="steps"><li><span>1</span> Choose an experience</li><li><span>2</span> Select the date, time and group size</li><li><span>3</span> See the deposit-ready request</li><li><span>4</span> Simulate confirmation</li></ol>
+        </section>
+        <section class="booking-card" aria-label="Booking demonstration">
+          <div class="card-header"><span>GUEST VIEW</span><strong>DEMO ONLY</strong></div>
+          <div id="form-panel">
+            <h2>Plan your session</h2>
+            <form id="booking-form">
+              <label>Experience
+                <select name="experience" required>
+                  <option value="standard">Standard sing-along room · up to 8 guests</option>
+                  <option value="vip">VIP celebration room · up to 20 guests</option>
+                  <option value="function">Function room · up to 60 guests</option>
+                  <option value="event">Private event enquiry · up to 120 guests</option>
+                </select>
+              </label>
+              <div class="two-columns"><label>Date<input name="date" type="date" required></label><label>Preferred time<input name="time" type="time" required></label></div>
+              <label>Number of guests<input name="guests" type="number" min="1" value="4" required></label>
+              <p class="notice">The actual flow can show room rules, packages, policies and a real payment method owned by the venue.</p>
+              <p id="form-error" class="error" role="alert"></p>
+              <button type="submit">Create booking request <span>→</span></button>
+            </form>
+          </div>
+          <div id="result-panel" hidden aria-live="polite">
+            <p class="eyebrow">REQUEST CREATED</p>
+            <h2 id="experience-name"></h2>
+            <p id="booking-summary" class="summary"></p>
+            <dl><div><dt>Reference</dt><dd id="reference"></dd></div><div><dt>Deposit</dt><dd id="deposit"></dd></div><div><dt>Status</dt><dd id="status"></dd></div></dl>
+            <div class="handover"><strong>What the team receives</strong><span>Selected experience, date, time, group size, deposit status and a structured record for follow-up.</span></div>
+            <button id="confirm-button" type="button">Simulate deposit confirmation <span>→</span></button>
+            <button id="restart-button" class="text-button" type="button">Start again</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="demo.mjs"></script>
+  </body>
+</html>
